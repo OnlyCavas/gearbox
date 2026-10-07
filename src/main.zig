@@ -54,7 +54,7 @@ pub fn main(init: std.process.Init) !u8 {
         false,
     );
 
-    var parser: Parser = .init(init.minimal.args);
+    var parser: Parser = try .init(init.minimal.args, allocator);
     const cmd = parser.parse() catch |err| {
         return switch (err) {
             error.NoOp => {

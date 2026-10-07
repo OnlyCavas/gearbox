@@ -150,8 +150,8 @@ pub const Parser = struct {
         MissingArgument,
     };
 
-    pub fn init(args: Arg) Parser {
-        var iter = args.iterate();
+    pub fn init(args: Arg, allocator: Allocator) !Parser {
+        var iter = try std.process.Args.iterateAllocator(args, allocator);
         _ = iter.next();
 
         return .{ .argInterator = iter };
