@@ -1,0 +1,9 @@
+# zig
+.zig-cache
+zig-out
+dist
+
+# cli output
+*.sii
+*.bsii
+*.json
